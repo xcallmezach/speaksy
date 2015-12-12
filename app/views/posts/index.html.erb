@@ -1,0 +1,99 @@
+
+    <div class="container">
+    	
+    	<div class="center row">
+        	<%= simple_form_for(@post, html: { class: 'form-inline'}) do |f| %>
+				<% if @post.errors.any? %>
+				<div id="errors">
+				  <h2></h2>
+				  <%= pluralize(@post.errors.count, "error") %>
+				  prevented this Pin from saving
+				  <ul>
+				    <% @post.errors.full_messages.each do |msg| %>
+				      <li>
+				        <%= msg %>
+				      </li>
+				    <% end %>
+				  </ul>
+				</div>
+				<% end %>
+				<div class="col-xs-12 col-md-12">
+				<%= f.collection_radio_buttons(:category_id, Category.all, :id, :name ) { |b| content_tag(:label) { b.radio_button + " " + b.label + " " }} %>
+				</div>
+				<div class="col-xs-12 col-md-4">
+				<%= f.input :title, label: "Title", input_html: { class: "form-control", style: 'width: 250px'} %>
+				</div>
+				<div class="col-xs-12 col-md-6">
+				<%= f.input :text, label: "Body", input_html: { class: "form-control", style: 'width: 400px'} %>
+				</div>
+				<div class="col-xs-12 col-md-2">
+					<p>
+						<%= f.button :submit %>
+					</p>
+				</div>
+				<% end %>
+		</div>
+	</div>
+        	<section style="background-color:#E0F2FC">
+        	<div class="container">
+           <div class="center row">
+                <h2>Top Posts</h2>
+                
+            </div>
+
+            <div class="row">
+                <div class="features">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="feature-wrap">
+                            <i></i>
+                            <h2>Confession</h2>
+                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-4 col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i></i>
+                            <h2>Question</h2>
+                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-4 col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i></i>
+                            <h2>Rants</h2>
+                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+                </div><!--/.services-->
+            </div><!--/.row-->    
+        </section>
+        </div><!--/.container-->
+   
+   
+        <div class="container">
+            <div class="center wow fadeInDown">
+                <h2>Recent Posts</h2>
+            </div>
+        </div>
+         <section style="background-color:#E0F2FC">
+ 
+    <div class="container">
+        <% @posts.each do |post| %>
+	     	<div class="row post">
+	            <div class="col-md-12">
+		            
+		                  <h2><%= link_to post.title, post %></h2>
+		                    <p><%= post.text %></p>
+		                    <p><%= post.category.name %></p>
+		              
+	               
+	            </div>
+	        </div>
+      
+   
+      	<% end %>
+      </div>
+
+    

@@ -1,0 +1,15 @@
+
+= simple_form_for(@post, html: { class: 'form-inline'}) do |f|
+	-if @post.errors.any?
+		#errors
+			%h2
+			= pluralize(@post.errors.count, "error")
+			prevented this Pin from saving
+			%ul
+				-@post.errors.full_messages.each do |msg|
+					%li= msg
+	= f.collection_radio_buttons(:category_id, Category.all, :id, :name ) { |b| content_tag(:label) { b.radio_button + " " + b.label + " " }}
+	= f.input :title, label: "Title", input_html: { class: "form-control" }
+	= f.input :text, label: "Body", input_html: { class: "form-control" }
+
+	= f.button :submit
