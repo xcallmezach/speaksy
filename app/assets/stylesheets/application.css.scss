@@ -31,6 +31,10 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background: url('/assets/clouds-bg.jpg');
+  background-size: 1920px 475px;
+  background-repeat: no-repeat;
+ 
 }
 
 
@@ -39,7 +43,7 @@ body {
 **************************/
 
 body {
-  background: #fff;
+  
   font-family: 'Open Sans', sans-serif;
   color:#4e4e4e;
   line-height: 22px;
@@ -299,14 +303,15 @@ input.search-form:hover {
 .navbar {
  
   margin-bottom: 0;
-  background: #BEE7FB;
+  background: transparent;
   padding: 0px 0;
   padding-bottom: 0;
-  border: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+
 }
 
  .navbar-nav{
-  margin-top: 7px;
+  margin-top: 10px;
  }
 
 .navbar-nav>li{
@@ -329,13 +334,11 @@ input.search-form:hover {
 }
 
 .navbar-inverse {
-  border: none;
+  border:none;
 }
 
 .navbar-inverse .navbar-brand {
-  font-size: 36px;
-  line-height: 20px;
-  color: #fff;
+
 }
 
 .navbar-inverse .navbar-nav > .active > a,
@@ -580,15 +583,19 @@ input.search-form:hover {
 .feature-wrap {
   margin-bottom: 35px;
   overflow: hidden;
-  background-color: #FAFEFF;
   padding: 10px;
+  border: 1px solid #E0F2FC;
+  -webkit-box-shadow: -7px 6px 21px -8px rgba(0,0,0,0.19);
+  -moz-box-shadow: -7px 6px 21px -8px rgba(0,0,0,0.19);
+  box-shadow: -7px 6px 21px -8px rgba(0,0,0,0.19);
 }
 
 .feature-wrap h2{
   margin-top: 10px;
-  background-color: #A1DCFA;
+  background-color: #BEE7FB;
   color: #fff;
   padding: 5px;
+
 }
 
 .feature-wrap .pull-left {
@@ -1967,10 +1974,12 @@ ul.social_icons li  a i{
 }
 
 #contact-page .contact-form 
-.form-group label {
+.form-group label 
+.form-control label {
   color: #4E4E4E;
   font-size: 16px;
   font-weight: 300;
+  padding: 3px;
 }
 
 .form-group .form-control {
@@ -2580,24 +2589,39 @@ shortcodes page css
 .form-inline div { display: inline-block }
 
 textarea.form-control {
-    height: 30px;
+    height: 35px;
     length: 150px;
-    background-color: #E0F2FC;
-    border: 1px #A1DCFA;
+    background-color: #FAFEFF;
+    border: 1px solid #A1DCFA;
+    width: 150px;
+  height: 32px;
+  color: #4e4e4e;
+  background-color: #fFAFEFF;
+  
+  border-radius: 5px;
+  box-shadow: 0 0 2px #ccc, 0 10px 15px #ebebeb inset;
 
 }
 
 input.form-control {
-    height: 30px;
+    height: 35px;
     length: 200px;
-    background-color: #E0F2FC;
-    border: 1px #A1DCFA;
+    background-color: #FAFEFF;
+    border: 1px solid #A1DCFA;
+     width: 150px;
+  height: 32px;
+  color: #4e4e4e;
+  background-color: #fFAFEFF;
+  
+  border-radius: 5px;
+  box-shadow: 0 0 2px #ccc, 0 10px 15px #ebebeb inset;
 }
 
 .post {
   border: 1px solid #eee;
   margin-top: 10px;
   background-color: #fff;
+  padding: 10px 5px 0px 10px;
 }
 
 input, textarea{
@@ -2605,3 +2629,44 @@ input, textarea{
     color: #FFF;
 }
 
+abbr[title="required"] {
+  display: none;
+}
+
+.radio-buttons {
+  padding: 3px;
+}
+
+.btn-clear {
+  background-color: transparent;
+  color: #4e4e4e;
+}
+
+/******** 
+********* Inset search bar ****
+********************************/
+
+.search {
+  position: relative;
+  color: #000;
+  font-size: 14px;
+  margin-top:11px;
+  left:30px;
+}
+
+.search input {
+  width: 200px;
+  height: 32px;
+  color: #4e4e4e;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  box-shadow: 0 0 1px #ccc, 0 10px 15px #ebebeb inset;
+}
+
+.search input { text-indent: 32px;}
+.search .btn-search { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

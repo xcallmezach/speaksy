@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
-  resources :posts
-  root 'posts#index'
+  resources :posts do
+ 	member do
+ 		put "like", to: "posts#upvote"
+ 	end
+ end
+
+ root "posts#index"
+ 
 end

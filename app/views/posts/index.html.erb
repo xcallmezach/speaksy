@@ -1,7 +1,12 @@
 
     <div class="container">
+        <div class="center row" style="margin-top:60px">
+            <h2>Speak easy, live easier.</h2>
+            <p>Confess, Ask or Rant anonymously and freely. No sign-up required. Speak your mind. The world is listening! 
+            </br>Start by submitting a post below!</p>
+        </div>
     	
-    	<div class="center row">
+    	<div class="center row" style="background-color:#BEE7FB; border-radius:10px">
         	<%= simple_form_for(@post, html: { class: 'form-inline'}) do |f| %>
 				<% if @post.errors.any? %>
 				<div id="errors">
@@ -34,20 +39,25 @@
 				<% end %>
 		</div>
 	</div>
-        	<section style="background-color:#E0F2FC">
+        	
         	<div class="container">
            <div class="center row">
+                <div>
                 <h2>Top Posts</h2>
+            </div>
+          
                 
             </div>
+</div>
 
+	<div class="container" >
             <div class="row">
-                <div class="features">
+                <div class="features" >
                     <div class="col-md-4 col-sm-12">
                         <div class="feature-wrap">
                             <i></i>
                             <h2>Confession</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+                            <h3>Salvia yr direct trade, pitchfork food truck +1 mixtape tumblr. YOLO pabst brooklyn keffiyeh schlitz, chartreuse hammock. 8-bit yuccie yr four dollar toast organic wolf. Cardigan cronut hoodie post-ironic quinoa 
                         </div>
                     </div><!--/.col-md-4-->
 
@@ -55,45 +65,64 @@
                         <div class="feature-wrap">
                             <i></i>
                             <h2>Question</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+                            <h3>Salvia yr direct trade, pitchfork food truck +1 mixtape tumblr. YOLO pabst brooklyn keffiyeh schlitz, chartreuse hammock. 8-bit yuccie yr four dollar toast organic wolf. Cardigan cronut hoodie post-ironic quinoa chia, meh </h3>
                         </div>
                     </div><!--/.col-md-4-->
 
                     <div class="col-md-4 col-sm-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
                             <i></i>
-                            <h2>Rants</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+                            <h2>Rant</h2>
+                            <h3>Salvia yr direct trade, pitchfork food truck +ronic quinoa chia, meh1 mixtape tumblr. YOLO pabst brooklyn keffiyeh schlitz, chartreuse writer. Chicharrones post-ironic semiotics flannel. 90's chambray crucifix bushwick. Chillw</h3>
                         </div>
                     </div><!--/.col-md-4-->
                 </div><!--/.services-->
             </div><!--/.row-->    
-        </section>
+       
         </div><!--/.container-->
-   
+
    
         <div class="container">
-            <div class="center wow fadeInDown">
+            <div class="row">
+                <div class="col-xs-6 col-md-6">
                 <h2>Recent Posts</h2>
             </div>
-        </div>
-         <section style="background-color:#E0F2FC">
+            
+       </div>
+    </div>
+<div>
+   
+         <section style="background-color:#fff">
  
     <div class="container">
+
         <% @posts.each do |post| %>
-	     	<div class="row post">
+	     	<div class="row">
 	            <div class="col-md-12">
+                    <div class="post">
 		            
-		                  <h2><%= link_to post.title, post %></h2>
-		                    <p><%= post.text %></p>
-		                    <p><%= post.category.name %></p>
-		              
-	               
+                <h2><%= link_to post.title, post %></h2>
+                    <p><%= post.text %></p>
+                    <p><%= post.category.name %>
+                    | <%=  time_ago_in_words(post.created_at) %> ago 
+                    | <%= link_to like_post_path(post), method: :put do %>
+                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                        <%= post.get_upvotes.size %></p>
+                    <% end %>
+                </div>
+              
+               
 	            </div>
 	        </div>
       
    
       	<% end %>
-      </div>
+    
+      <div class="row" style="text-align:right"
+      <p><%= paginate @posts %></p>
+  </div>
+
+</div>
+
 
     
